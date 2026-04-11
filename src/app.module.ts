@@ -13,6 +13,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'tasks-management',
       autoLoadEntities: true,
       synchronize: true,
+      extra: {
+        poolSize: 10,
+        keepAlive: true,
+        statement_timeout: 10000,
+      },
     }),
   ],
 })
