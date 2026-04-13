@@ -10,8 +10,9 @@
 ## Project Overview
 
 This repository contains the backend infrastructure for a Task Management application. It is designed with scalability and maintainability in mind, leveraging the Data Mapper pattern to decouple business logic from data access, ensuring a clean and testable codebase.
+API DEMO:
+<img width="1905" height="965" alt="image" src="https://github.com/user-attachments/assets/42a4a5c4-15f0-4aaa-9470-0527c4fa5c3b" />
 
-*(Optional: Insert a screenshot of your successful API test here: `![API Demo](./docs/postman.png)`)*
 
 ## Key Features
 
