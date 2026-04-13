@@ -1,98 +1,46 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📝 Task Management API (NestJS)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+> Một hệ thống RESTful API quản lý công việc chuyên nghiệp, được xây dựng với kiến trúc Modular và bảo mật chặt chẽ.
 
-## Description
+## 🚀 Giới thiệu dự án
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Dự án này là hệ thống Backend cung cấp các API cho ứng dụng Quản lý công việc (Task Management). Hệ thống được thiết kế theo **Kiến trúc 3 lớp (3-Tier Architecture)** kết hợp với mô hình **Data Mapper**, đảm bảo tính mở rộng, dễ bảo trì và hiệu năng cao.
 
-## Project setup
+*(Thêm 1 ảnh chụp màn hình Postman lúc test API thành công vào đây: `![Postman Screenshot](./docs/postman.png)`)*
 
-```bash
-$ npm install
-```
+## ✨ Tính năng nổi bật
 
-## Compile and run the project
+* **Xác thực & Phân quyền (Auth):** * Đăng ký / Đăng nhập an toàn.
+    * Bảo mật API bằng **JSON Web Tokens (JWT)** và Passport.js.
+    * Mật khẩu được băm (hashing & salting) bằng bcrypt.
+* **Quản lý Công việc (Tasks CRUD):**
+    * Tạo, đọc, cập nhật (trạng thái), và xóa công việc.
+    * Tìm kiếm và lọc công việc thông minh (Filter & Search).
+    * **Data Ownership:** Người dùng nào chỉ được phép xem và thao tác trên công việc của chính người đó.
+* **Bảo mật & Chuẩn hóa Dữ liệu:**
+    * Sử dụng **DTOs (Data Transfer Objects)** và Pipes để validate dữ liệu đầu vào.
+    * Sử dụng Interceptors và Class-Transformer để ẩn dữ liệu nhạy cảm (như mật khẩu) trước khi trả về Client.
 
-```bash
-# development
-$ npm run start
+## 🏗 Kiến trúc hệ thống (Architecture)
 
-# watch mode
-$ npm run start:dev
+Hệ thống tuân thủ nghiêm ngặt mô hình **Data Mapper** của TypeORM, tách biệt hoàn toàn logic nghiệp vụ và logic truy xuất cơ sở dữ liệu.
 
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```mermaid
+graph TD
+    Client([Client / Postman]) -->|HTTP Request + JWT| Controller(Controllers)
+    
+    subgraph NestJS Application
+    Controller -->|DTO| ValidationPipe(Validation Pipes)
+    ValidationPipe --> Service(Services\nBusiness Logic)
+    Service -->|Entities| Repository(Repositories\nData Mapper)
+    end
+    
+    Repository -->|TypeORM / SQL| Database[(PostgreSQL)]
+    
+    classDef nest fill:#e0234e,stroke:#fff,stroke-width:2px,color:#fff;
+    class Controller,Service,ValidationPipe,Repository nest;
