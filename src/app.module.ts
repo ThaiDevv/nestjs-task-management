@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TasksModule } from './tasks/tasks.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     TasksModule,
@@ -19,6 +20,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         statement_timeout: 10000,
       },
     }),
+    AuthModule,
   ],
 })
 export class AppModule {}
