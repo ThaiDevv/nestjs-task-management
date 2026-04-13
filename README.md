@@ -1,34 +1,35 @@
-# 📝 Task Management API (NestJS)
+# NestJS Task Management REST API
 
 ![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
-> Một hệ thống RESTful API quản lý công việc chuyên nghiệp, được xây dựng với kiến trúc Modular và bảo mật chặt chẽ.
+> A robust, production-ready RESTful API for task management. Engineered with NestJS and PostgreSQL, this project strictly adheres to a modular, 3-tier architecture and implements enterprise-grade security practices.
 
-## 🚀 Giới thiệu dự án
+## Project Overview
 
-Dự án này là hệ thống Backend cung cấp các API cho ứng dụng Quản lý công việc (Task Management). Hệ thống được thiết kế theo **Kiến trúc 3 lớp (3-Tier Architecture)** kết hợp với mô hình **Data Mapper**, đảm bảo tính mở rộng, dễ bảo trì và hiệu năng cao.
+This repository contains the backend infrastructure for a Task Management application. It is designed with scalability and maintainability in mind, leveraging the Data Mapper pattern to decouple business logic from data access, ensuring a clean and testable codebase.
 
-*(Thêm 1 ảnh chụp màn hình Postman lúc test API thành công vào đây: `![Postman Screenshot](./docs/postman.png)`)*
+*(Optional: Insert a screenshot of your successful API test here: `![API Demo](./docs/postman.png)`)*
 
-## ✨ Tính năng nổi bật
+## Key Features
 
-* **Xác thực & Phân quyền (Auth):** * Đăng ký / Đăng nhập an toàn.
-    * Bảo mật API bằng **JSON Web Tokens (JWT)** và Passport.js.
-    * Mật khẩu được băm (hashing & salting) bằng bcrypt.
-* **Quản lý Công việc (Tasks CRUD):**
-    * Tạo, đọc, cập nhật (trạng thái), và xóa công việc.
-    * Tìm kiếm và lọc công việc thông minh (Filter & Search).
-    * **Data Ownership:** Người dùng nào chỉ được phép xem và thao tác trên công việc của chính người đó.
-* **Bảo mật & Chuẩn hóa Dữ liệu:**
-    * Sử dụng **DTOs (Data Transfer Objects)** và Pipes để validate dữ liệu đầu vào.
-    * Sử dụng Interceptors và Class-Transformer để ẩn dữ liệu nhạy cảm (như mật khẩu) trước khi trả về Client.
+* **Authentication & Authorization:** * Secure user registration and login workflows.
+    * Stateless authentication using JSON Web Tokens (JWT) and Passport.js.
+    * Cryptographic password hashing and salting via `bcrypt`.
+* **Advanced Task Management (CRUD):**
+    * Create, read, update (status), and delete tasks.
+    * Sophisticated querying capabilities including dynamic filtering and search.
+* **Data Segregation & Ownership:**
+    * Strict tenant-level data isolation: Users can only retrieve, modify, or delete tasks associated with their own accounts.
+* **Security & Data Integrity:**
+    * **Input Validation:** Utilizes Data Transfer Objects (DTOs) and NestJS Pipes to sanitize and validate incoming payloads.
+    * **Data Serialization:** Implements custom Interceptors and `class-transformer` to automatically strip sensitive information (e.g., passwords, raw user objects) from outgoing JSON responses, preventing data leakage.
 
-## 🏗 Kiến trúc hệ thống (Architecture)
+## System Architecture
 
-Hệ thống tuân thủ nghiêm ngặt mô hình **Data Mapper** của TypeORM, tách biệt hoàn toàn logic nghiệp vụ và logic truy xuất cơ sở dữ liệu.
+The application enforces a strict separation of concerns, utilizing TypeORM's Data Mapper pattern to isolate database interactions from core business logic.
 
 ```mermaid
 graph TD
